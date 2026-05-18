@@ -3,7 +3,7 @@ import { FONTS } from "../App";
 const plain = (s="") => s.replace(/<[^>]+>/g,"");
 const wc = (t="") => t.trim()?t.trim().split(/\s+/).length:0;
 
-export function StatsView({ C, entries, projects }) {
+export default function StatsView({ C, entries, projects }) {
   const today = new Date();
   const allTasks = projects.flatMap(p=>p.tasks||[]);
   const totalWords = entries.reduce((acc,e)=>acc+wc(plain(e.content||"")),0);
